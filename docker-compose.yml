@@ -1,0 +1,8 @@
+version: '3.4'
+
+services:
+  4.5.4:
+    build:
+      context: .
+      dockerfile: 4.5.4/Dockerfile
+    image: blairham/anaconda3:4.5.4-alpine
