@@ -5,6 +5,7 @@ MAINTAINER Blair Hamilton <blairham@wickedcode.io>
 RUN set -eux \
   ; apk update \
   ; apk add --no-cache bash \
+  ; apk add --no-cache zsh \
   ; apk add --no-cache ca-certificates wget \
 # install glibc
   ; wget -q -O /etc/apk/keys/sgerrand.rsa.pub https://alpine-pkgs.sgerrand.com/sgerrand.rsa.pub \
@@ -23,7 +24,7 @@ RUN set -eux \
   ; rm miniconda.sh \
 # configure anaconda
   ; ln -s /opt/conda/etc/profile.d/conda.sh /etc/profile.d/conda.sh \
-  ; echo "conda activate base" | tee -a ~/.bashrc ~/.zshrc ~/.ashrc
+  ; echo ". /opt/conda/etc/profile.d/conda.sh" | tee -a ~/.bashrc
 
 # add conda to path
 ENV PATH=$PATH:/opt/conda:/opt/conda/bin \
